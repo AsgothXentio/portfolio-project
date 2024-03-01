@@ -8,10 +8,23 @@ def index():
     project= Project.query.all()
     return render_template('index.html', project=project)
 
+
+@app.route('/detail')
+def detail():
+    project= Project.query.all()
+    return render_template('detail.html', project=project)
+
+
+@app.route('/about', methods=['GET'])
+def about():
+    project= Project.query.all()
+    return render_template('about.html', project=project)
+
+
 @app.route('/add', methods=['GET', 'POST'])
 def add_project():
     if request.form:
-        new_project = Project(title=request.form['title'], created=request.form['created'], 
+        new_project = Project(title=request.form['title'], 
                       description=request.form['description'], skill=request.form['skill'],
                       url=request.form['url'], url_tag=request.form['alt']
                       ,)
@@ -26,11 +39,11 @@ def edit(id):
 
     if project is None:
 
-        # Handle the case where the pet with the given id is not found
+      
         return redirect(url_for('index'))
 
     if request.method == 'POST':
-        # Update the pet information only when the form is submitted
+       
         project.title = request.form['title']
         project.created = request.form['created']
         project.description = request.form['description']
@@ -41,7 +54,7 @@ def edit(id):
         db.session.commit()
         return redirect(url_for('index'))
 
-    # Render the editpet.html template for the initial GET request
+    
     return render_template('edit.html', project=project)
 
 

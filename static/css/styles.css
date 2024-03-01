@@ -2,10 +2,10 @@
 Colors
 *******/
 :root {
-    --primary-text: #51475c;
-    --secondary-text: #ab6c82;
+    --primary-text: #f5ecff;
+    --secondary-text: #000000;
     --primary: #475c7a;
-    --secondary: #fcbb6d;
+    --secondary: #0d2436;
     --accent: #d8737f;
     --white:  #fff;
 }
@@ -24,6 +24,12 @@ li,
 a {
     font-size: 20px;
 }
+
+h1 {
+    color:#0d2436;
+}
+
+
 
 h2 {
     font-size: 30px;
@@ -48,17 +54,17 @@ nav {
 }
 
 .navbar-brand {
-    color: var(--primary-text);
+    color: var(--secondary-text);
     font-size: 20px;
 }
 
 .navbar-brand:hover,
 .navbar-brand:focus {
-    color: var(--primary-text);
+    color: var(--secondary-text);
 }
 
 .nav-item a {
-    color: var(--primary-text);
+    color: var(--secondary-text);
     font-size: 20px;
 }
 
@@ -70,7 +76,7 @@ nav {
 }
 
 .toggle {
-    color: var(--primary-text);
+    color: var(--secondary-text);
     border: none;
     background-color: transparent;
     font-size: 20px;
@@ -110,6 +116,48 @@ Header  - Homepage
     object-fit: cover;
     margin-bottom: 6rem;
     margin-top: 4rem;
+}
+
+#skills h2 {
+    color: #333; /* Replace #333 with your desired dark color code */
+}
+#skills h2 {
+    color: #333; /* Replace #333 with your desired dark color code for the header */
+}
+
+#skills ul {
+    padding: 0;
+    margin-bottom: 6rem;
+}
+
+#skills li {
+    list-style-type: none;
+    line-height: 50px;
+}
+
+#skills li {
+    color: #555; /* Replace #555 with your desired dark color code for the skills list */
+}
+
+#contact h2 {
+    color: #333; /* Replace #333 with your desired dark color code for the header */
+}
+
+#contact p {
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 2rem;
+    color: #555; /* Replace #555 with your desired dark color code for the paragraph text */
+}
+
+#contact p i {
+    margin-right: 15px;
+    color: #555; /* Replace #555 with your desired dark color code for the icon */
+}
+
+#image-container a {
+    color: #555; /* Replace #555 with your desired dark color code for the email link */
 }
 
 /***************
@@ -226,6 +274,7 @@ Projects
 
 #projects {
     background-color: var(--secondary);
+    color:#f7edcc;
     position: relative;
     text-align: center;
     padding: 5%;
@@ -269,6 +318,10 @@ Projects
 
 .github-btn i {
     color: var(--white);
+}
+
+.spotify-btn i {
+    color: white;
 }
 
 #projects .a-project p {
