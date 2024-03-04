@@ -1,37 +1,65 @@
-from flask import (url_for, request, 
-                   redirect, render_template)
+from flask import (
+    Flask,
+    url_for,
+    request,
+    redirect,
+    render_template,
+    flash,
+)
+    
 from models import db, Project, app
+from datetime import datetime
+from forms import AddProjectForm
 
+
+app.secret_key = '@!#@!effR@$#%tY^%&5785675654ygG$#Q:GP6*P&'
 
 @app.route('/')
 def index():
-    project= Project.query.all()
-    return render_template('index.html', project=project)
-
+    projects = Project.query.all()
+    return render_template('index.html', projects=projects)
 
 @app.route('/detail')
 def detail():
-    project= Project.query.all()
-    return render_template('detail.html', project=project)
-
+    projects = Project.query.all()
+    return render_template('detail.html', projects=projects)
 
 @app.route('/about', methods=['GET'])
 def about():
-    project= Project.query.all()
-    return render_template('about.html', project=project)
-
+    projects = Project.query.all()
+    return render_template('about.html', projects=projects)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_project():
-    if request.form:
-        new_project = Project(title=request.form['title'], 
-                      description=request.form['description'], skill=request.form['skill'],
-                      url=request.form['url'], url_tag=request.form['alt']
-                      ,)
-        db.session.add(new_project)
-        db.session.commit()
-        return redirect(url_for('index'))
-    return render_template('add.html')
+    form = AddProjectForm() 
+
+    if request.method == 'POST' and form.validate_on_submit():
+        title = form.title.data
+        description = form.description.data
+        skill = form.skill.data
+        url = form.url.data
+        url_tag = form.url_tag.data
+
+        created = datetime.now()
+
+        new_project = Project(
+            title=title,
+            description=description,
+            skill=skill,
+            url=url,
+            url_tag=url_tag
+        )
+
+        try:
+            db.session.add(new_project)
+            db.session.commit()
+            flash("Project added successfully", 'success')
+            return redirect(url_for('index'))
+        except Exception as e:
+            print(f"Error adding project to the database: {e}")
+            flash("Error adding project to the database", 'danger')
+
+    return render_template('add.html', form=form, index_url=url_for('index'))
 
 @app.route('/edit/<id>', methods=['GET', 'POST'])
 def edit(id):
@@ -39,13 +67,13 @@ def edit(id):
 
     if project is None:
 
-      
+        
         return redirect(url_for('index'))
 
     if request.method == 'POST':
-       
+
         project.title = request.form['title']
-        project.created = request.form['created']
+
         project.description = request.form['description']
         project.skill = request.form['skill']
         project.url = request.form['url']
@@ -54,7 +82,7 @@ def edit(id):
         db.session.commit()
         return redirect(url_for('index'))
 
-    
+
     return render_template('edit.html', project=project)
 
 
@@ -62,21 +90,23 @@ def edit(id):
 
 @app.route('/project/<id>')
 def project(id):
-    project = Project.query.get_or_404(id)
-    return render_template('projectform.html', project=project)
+    single_project = Project.query.get_or_404(id)
+    return render_template('projectform.html', project=single_project)
 
-
-@app.route('/delete/<id>')
+@app.route('/delete/<id>', methods=['GET', 'POST'])
 def delete_project(id):
-    project=Project.query.get_or_404(id)
-    db.session.delete(project)
-    db.session.commit()
-    return redirect(url_for('index'))
+    if request.method == 'POST':
+        projects = Project.query.get_or_404(id)
+        db.session.delete(projects)
+        db.session.commit()
+        flash("Project deleted successfully", 'success')
+        return redirect(url_for('index'))
 
 
 @app.errorhandler(404)
 def not_found(error):
-    return render_template('404.html', msg=error), 404
+    custom_message = "Sorry, i am not working fast enough, this page was not yet coded"
+    return render_template('404.html', msg=custom_message), 404
 
 
 

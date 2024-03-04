@@ -1,10 +1,10 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import datetime
-
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///product.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(app.instance_path, 'project.db')
 db = SQLAlchemy(app)
 
 
@@ -13,7 +13,7 @@ class Project(db.Model):
     title = db.Column('Title',db.String())
     created = db.Column('Created', db.DateTime, default=datetime.datetime.now)
     description = db.Column('Description',db.Text())
-    skill = db.Column('Skills Practiced',db.String())
+    skill = db.Column('Skill',db.Text())
     url = db.Column('URL',db.String())
     url_tag = db.Column('Alt tag',db.String())
 

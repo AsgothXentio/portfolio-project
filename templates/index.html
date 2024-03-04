@@ -3,12 +3,43 @@
 {% block content %}
         <section class="header">
             <h1>Python Developer</h1>
-            <p>A short one-liner about your love of coding.</p>
+            <p>To infinity and beyond!.</p>
             <img src="{{ url_for('static', filename='img/moi.jpg') }}" alt="Headshot of myself">
+        </section>
+        <section id="skill">
+            <i class="fas fa-laptop-code"></i>
+            <h2>Skill</h2>
+            <ul>
+                <li>Python <i class="fas fa-dragon"></i></li>
+                <li>Flask <i class="fas fa-glass-martini"></i></li>
+                <li>SQLAlchemy <i class="fas fa-database"></i></li>
+                <li>GitHub <i class="fas fa-link"></i></li>
+                <li>Visual Studio Code <i class="fas fa-code"></i></li>
+            </ul>
+        </section>
+        <section id="projects">
+            <div id="triangle3"></div>
+            <i class="fas fa-file-code"></i>
+            <h2>Projects</h2>
+            <div id="project-list">
+                    {% for project in projects %}
+                    <div class="a-project">
+                    <h3>{{ project.title }}</h3>
+                    <a href="{{ project.url }}" alt="{{ project.url_tag }}" class="github-btn" target="_blank">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <p>{{ project.description }}</p>
+                    <p>Skill:{{ project.skill }}</p>
+                    </div>
+                    {% endfor %}
+            </div>
+            <div id="triangle4"></div>
         </section>
         <section id="about">
             <h2>About Me</h2>
-            <p>
+            <p style="color:aliceblue !important;">
+            </p>
             <div id="spotify-button">
                 <a href="https://open.spotify.com/album/3bjYClhYKGeeK4y9QIvo7d" class="spotify" target="_blank">
                     <i class="fab fa-spotify"></i> Listen on Spotify
@@ -74,84 +105,11 @@
                 Where life is beautiful all the time<br>
                 And I'll be happy to see those nice young men in their clean white coats<br>
                 <i class="fas fa-music"></i>
-            </p>
             <div id="triangle1"></div>
             <div id="triangle2"></div>
         </section>
-        <section id="skills">
-            <i class="fas fa-laptop-code"></i>
-            <h2>Skills</h2>
-            <ul>
-                <li>Python<i class="fas fa-dragon"></i></li>
-                <li>Flask</li><i class="fas fa-glass-martini"></i>
-                <li>SQLAlchemy</li><i class="fas fa-database"></i>
-                <li>GitHub</li><i class="fas fa-link"></i>
-                <li>Visual Studio Code</li><i class="fas fa-code"></i>
-            </ul>
-        </section>
-        <section id="projects">
-            <div id="triangle3"></div>
-            <i class="fas fa-file-code"></i>
-            <h2>Projects</h2>
-            <div id="project-list">
-                <div id="project1" class="a-project">
-                    <h3>Number Guessing Game</h3>
-                    <a href="https://github.com/AsgothXentio/guessing_game/blob/main/Guessing_game" class="github-btn" target="_blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <p>
-                        One of the first thigns i tried, it was fun to build. Can you guess the numbers in the least amounts of tries?
-                    </p>
-                    <p>
-                        Skills: 
-                        Making use of loops and random numbers
-                    </p>
-                </div>
-                <div id="project2" class="a-project">
-                    <h3>Phrase Hunter</h3>
-                    <a href="https://github.com/AsgothXentio/phrasehunter.py" class="github-btn" target="blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <p>
-                        A bit similiar to the number guessing game, but i still enjoyed building it. And just to be totally cliché...
-                        CAN YOU GUESS THE CORRECT PHRASE?
-                    </p>
-                    <p>
-                        Skills: Python of course and.. sometimes trying not to overthink issues.
-                    </p>
-                </div>
-                <div id="project3" class="a-project">
-                    <h3>Employee Database</h3>
-                    <a href="https://github.com/AsgothXentio/employeedatabase" class="github-btn" target="blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <p>
-                        Trying to start building my own database. After building this and trying another website, i want to see if i can make a salary calculation based on the information.
-                    </p>
-                    <p>
-                        Skills: 
-                        Little bit of datetime and csv import
-                    </p>
-                </div>
-                <div id="project4" class="a-project">
-                    <h3>Store inventory</h3>
-                    <a href="https://github.com/AsgothXentio/storeinventory" class="github-btn" target="blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <p>
-                        Just a store inventory project via Treehouse
-                    </p>
-                    <p>
-                        Skills: Working with csv again.
-                    </p>
-                </div>
-            </div>
-            <div id="triangle4"></div>
-        </section>
+
+
         <section id="contact">
             <i class="fas fa-paper-plane"></i>
             <h2>Contact Me</h2>
@@ -164,7 +122,7 @@
                 </a>
                 
             </p>
-            <p> If you do not want to see something constructive, please click below</p>
+            <p> If you do not want to say something constructive, please click below</p>
             <p>
                 <div id="image-container">
                 <p><i class="fa fa-trash"></i><a href="{{ url_for('static', filename='img/trashcan.png') }}" target="_blank">my_email@email.com</p>

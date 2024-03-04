@@ -3,37 +3,35 @@
 {% block content %}
 <section id="form">
     <form action="{{ url_for('add_project') }}" method="POST">
+        {{ form.hidden_tag() }}
         <div class="columns">
             <div class="col1">
-                <div class="form-container">
-                    <label for="title">Title</label>
-                    <input id="title" name="title" type="text" placeholder="Enter title here">
+                <div class="form-container">    
+                    <p>{{ form.title.label }}</p>
+                    {{ form.title(class="form-control", placeholder="Enter title here") }}
                 </div>
-                <fieldset id="descr">
-                    <div>
-                        <legend>Description</legend>
-                        <label for="description" style="display: none;">Description</label>
-                        <textarea name="description" id="description" cols="30" rows="10" placeholder="This project is..."></textarea>
-                    </div>
-                </fieldset>
                 <div class="form-container">
-                    <label for="skill">Skills practiced</label>
-                    <input id="skill" name="skill" type="text" placeholder="skill">
+                    <p>{{ form.description.label }}</p>
+                    {{ form.description(class="form-control", placeholder="This project is...") }}
+                </div>
+                <div class="form-container">
+                    <p>{{ form.skill.label }}</p>
+                    {{ form.skill(class="form-control", placeholder="Skill...", style="text-align:left;") }}
                 </div>
             </div>
             <div class="col2">
                 <div class="form-container">
-                    <label for="url">GitHub link</label>
-                    <input id="url" name="url" type="text" placeholder="url please">
+                    <p>{{ form.url.label }}</p>
+                    {{ form.url(class="form-control", placeholder="URL please") }}
                 </div>
                 <div class="form-container">
-                    <label for="alt">Image Alt Text</label>
-                    <input id="alt" name="alt" type="text" placeholder="project name">
+                    <p>{{ form.url_tag.label }}</p>
+                    {{ form.url_tag(class="form-control", placeholder="Project name") }}
                 </div>
             </div>
         </div>
         <div id="form-buttons">
-            <button type="reset">Cancel</button>
+            <a href="{{ url_for('index') }}"><button type="button">Cancel</button></a>
             <button type="submit">Submit</button>
         </div>
     </form>
