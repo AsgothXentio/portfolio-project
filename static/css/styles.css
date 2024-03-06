@@ -2,10 +2,10 @@
 Colors
 *******/
 :root {
-    --primary-text: #fffcfc;
-    --secondary-text: #000000;
-    --primary: #011735;
-    --secondary: #5686ac;
+    --primary-text: #51475c;
+    --secondary-text: #ab6c82;
+    --primary: #475c7a;
+    --secondary: #fcbb6d;
     --accent: #d8737f;
     --white:  #fff;
 }
@@ -16,7 +16,7 @@ FONT
 
 * {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
-
+    color: var(--primary-text);
 }
 
 p, 
@@ -24,12 +24,6 @@ li,
 a {
     font-size: 20px;
 }
-
-h1 {
-    color:#0d2436;
-}
-
-
 
 h2 {
     font-size: 30px;
@@ -54,17 +48,17 @@ nav {
 }
 
 .navbar-brand {
-    color: var(--secondary-text);
+    color: var(--primary-text);
     font-size: 20px;
 }
 
 .navbar-brand:hover,
 .navbar-brand:focus {
-    color: var(--secondary-text);
+    color: var(--primary-text);
 }
 
 .nav-item a {
-    color: var(--secondary-text);
+    color: var(--primary-text);
     font-size: 20px;
 }
 
@@ -76,7 +70,7 @@ nav {
 }
 
 .toggle {
-    color: var(--secondary-text);
+    color: var(--primary-text);
     border: none;
     background-color: transparent;
     font-size: 20px;
@@ -102,10 +96,6 @@ Header  - Homepage
 .header h1{
     font-size: 32px;
     font-weight: bold;
-    background-color:#0b002b;
-    color:#973e22; 
-    padding: 10px 20px; 
-    border-radius: 10px;
 }
 
 .header p {
@@ -122,51 +112,6 @@ Header  - Homepage
     margin-top: 4rem;
 }
 
-#skill {
-    margin-top: 2rem;
-    text-align: center;
-    background-color: #0b002b;
-    padding: 5%; /* Adjust padding as needed */
-}
-
-#skill h2 {
-    color: #fcf4f4;
-}
-
-#skill ul {
-    padding: 0;
-    margin-bottom: 2rem;
-    background-color: #0b002b;
-}
-
-#skill li {
-    list-style-type: none;
-    line-height: 50px;
-    background-color: #0b002b;
-    color: #fcf4f4;
-}
-
-#contact h2 {
-    color: #333; /* Replace #333 with your desired dark color code for the header */
-}
-
-#contact p {
-    text-align: left;
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-bottom: 2rem;
-    color: #555; /* Replace #555 with your desired dark color code for the paragraph text */
-}
-
-#contact p i {
-    margin-right: 15px;
-    color: #555; /* Replace #555 with your desired dark color code for the icon */
-}
-
-#image-container a {
-    color: #555; /* Replace #555 with your desired dark color code for the email link */
-}
-
 /***************
 Header - Detail
 ***************/
@@ -177,20 +122,20 @@ Header - Detail
     margin-bottom: 4rem;
 }
 
-.header .project-skill {
+.header .project-skills {
     list-style: none;
-    text-align: center;
+    text-align: left;
     margin: auto;
     line-height: 40px;
     max-width: 250px;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
-.header .project-skill li {
+.header .project-skills li {
     position: relative;
 }
 
-.header  .project-skill li::before {
+.header  .project-skills li::before {
     content: '\FE61';
     position: absolute;
     left: -20px;
@@ -201,7 +146,6 @@ About
 *******/
 
 #about {
-    color:#fcf4f4 !important;
     text-align: center;
     background-color: var(--primary);
     padding: 5%;
@@ -235,57 +179,65 @@ About
 #about p {
     color: var(--white);
     margin: auto;
-    color:#fcf4f4;
 }
 
 #about h2 {
     margin-top: 1rem;
     margin-bottom: 2rem;
-    color:#fcf4f4;
 }
 
 #about p {
     text-align: left;
     margin-bottom: 2rem;
-    color:#fcf4f4;
 }
 
 /*******
-Skill
+Skills
 *******/
 
-#skill {
-    margin-top: 2rem;
+#skills {
+    margin-top: 7rem;
     text-align: center;
 }
 
-#skill .fas {
+#skills .fas {
     color: var(--accent);
     font-size: 34px;
     margin-bottom: 2rem;
 }
 
-#skill h2 {
+#skills h2 {
     margin-bottom: 3rem;
+    text-align: center; /* Center the header text */
 }
 
-#skill ul {
+#skills ul {
     padding: 0%;
     margin-bottom: 6rem;
 }
 
-#skill li {
+#skills li {
     list-style-type: none;
     line-height: 50px;
 }
 
+#form #skills-label {
+    margin-bottom: 10px; /* Increase margin for better spacing */
+    display: block; /* Ensure the label is on top of the textarea */
+    text-align: left;
+}
+
+#form #skills-list {
+    width: 100%; /* Take up the full width of its container */
+    text-align: left; /* Align text in the textarea to the left */
+    margin-top: 10px; /* Adjust margin for better spacing */
+}
 /*******
 Projects
 *******/
 
 #projects {
     background-color: var(--secondary);
-    color:#1f1801;
     position: relative;
     text-align: center;
     padding: 5%;
@@ -329,10 +281,6 @@ Projects
 
 .github-btn i {
     color: var(--white);
-}
-
-.spotify-btn i {
-    color: white;
 }
 
 #projects .a-project p {
@@ -427,7 +375,6 @@ Description - Detail
     text-align: center;
     padding-right: 5%;
     padding-left: 5%;
-
 }
 
 #triangle5 {
@@ -499,13 +446,14 @@ Form
     margin: auto;
     margin-top: 4rem;
     margin-bottom: 4rem;
-    color: #0d2436;
 }
 
 #form input,
 #form textarea {
-    border: 2px solid var(--secondary-text);
+    border: none;
+    border: 2px solid;
     border-radius: 10px;
+    border-color: var(--secondary-text);
     width: 300px;
     height: 72px;
     display: block;
@@ -513,20 +461,15 @@ Form
     padding-left: 15px;
     padding-right: 10px;
     margin-bottom: 2rem;
-    color: #0d2436;
-    background-color: #fff; /* Set background color as needed */
 }
 
 #form input[type='month'] {
     width: 250px;
-    color: #000000;
 }
 
 #form textarea {
     padding-top: 10px;
     height: 200px;
-    color: #131516;
-    background-color: #fff; /* Set background color as needed */
 }
 
 #form label {
@@ -534,18 +477,19 @@ Form
     font-weight: bold;
     margin-bottom: 20px;
     text-align: left;
-    color: #03111b;
+}
+
+#form #skills-label {
+    margin-bottom: 0px;
 }
 
 #form p {
     font-size: 18px;
     font-style: italic;
-    color: #011735;
 }
 
 #form div {
     text-align: center;
-    color: #011735;
 }
 
 #form button {
@@ -553,21 +497,15 @@ Form
     border-radius: 10px;
     font-size: 20px;
     padding: 9px 40px;
-    color: #fff; /* Set text color as needed */
-    background-color: var(--secondary); /* Set background color as needed */
 }
 
 #form button[type='reset'] {
     margin-right: 10px;
-    background-color: var(--secondary); /* Set background color as needed */
+    background-color: var(--white);
 }
 
 #form button[type='submit'] {
-    background-color: var(--secondary); /* Set background color as needed */
-}
-
-#descr {
-    color: var(--primary-text); /* Adjust to the desired text color */
+    background-color: var(--secondary);
 }
 
 /********************
@@ -579,7 +517,6 @@ EXCEEDS - About Page
     position: relative;
     padding: 3rem 5%;
     text-align: center;
-    color:#fcf4f4;
 }
 
 #about-page #triangle7,
@@ -591,29 +528,24 @@ EXCEEDS - About Page
     border-bottom: 100px solid var(--secondary);
     position: absolute;
     top: -75px;
-    color:#fcf4f4;
 }
 
 #about-page #triangle7 {
     right: -50px;
-    color:#fcf4f4;
 }
 
 #about-page #triangle8 {
     right: 0px;
-    color:#fcf4f4;
 }
 
 #about-page h2 {
     margin-bottom: 4rem;
-    color:#fcf4f4;
 }
 
 #about-page p {
     margin-top: 2rem;
     text-align: left;
     margin-bottom: 5rem;
-    color:#fcf4f4;
 }
 
 #about-page a {
@@ -623,14 +555,12 @@ EXCEEDS - About Page
     border-radius: 10px;
     font-size: 20px;
     padding: 9px 40px;
-    color:#fcf4f4;
 }
 
 #about-page a i {
     color: var(--white);
     font-size: 20px;
     padding-right: 10px;
-    color:#fcf4f4;
 }
 
 /*******
@@ -676,27 +606,25 @@ Media Queries
     #contact,
     #about-page {
         padding: 5% 15%;
-        color:#fcf4f4;
     }
 
     #about p {
         padding-left: 5%;
         padding-right: 5%;
-        color:#fcf4f4;
     }
 
-    #skill .fas,
+    #skills .fas,
     #projects .fa-file-code,
     #contact .fa-paper-plane {
         font-size: 100px;
         margin-bottom: 4rem;
     }
 
-    #skill .fas {
+    #skills .fas {
         margin-bottom: 6rem;
     }
 
-    #skill ul {
+    #skills ul {
         -webkit-column-count: 2;  /* Chrome/Opera, Safari */
         -moz-column-count: 2; /* Mozilla Firefox */
         column-count: 2;
@@ -735,7 +663,7 @@ Media Queries
         padding-right: 15px;
     }
 
-    #skill li {
+    #skills li {
         font-size: 28px;
         line-height: 80px;
     }
@@ -748,7 +676,7 @@ Media Queries
         margin-bottom: 6rem;
     }
 
-    .header .project-skill {
+    .header .project-skills {
         -webkit-column-count: 2;  /* Chrome/Opera, Safari */
         -moz-column-count: 2; /* Mozilla Firefox */
         column-count: 2;
@@ -763,25 +691,4 @@ Media Queries
     #form textarea {
         width: 530px;
     }
-}
-
-
-.buttons-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 20px; /* Adjust the margin as needed */
-}
-
-.edit-btn, .delete-btn {
-    background-color: var(--secondary); /* Adjust the background color */
-    color: var(--white); /* Adjust the text color */
-    padding: 10px 20px; /* Adjust padding as needed */
-    border-radius: 5px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.edit-btn:hover, .delete-btn:hover {
-    background-color: var(--accent); /* Adjust the background color on hover */
 }

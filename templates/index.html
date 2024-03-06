@@ -1,20 +1,34 @@
 {% extends 'layout.html' %}
 
-{% block content %}
+{% block content %} 
         <section class="header">
             <h1>Python Developer</h1>
-            <p>To infinity and beyond!.</p>
-            <img src="{{ url_for('static', filename='img/moi.jpg') }}" alt="Headshot of myself">
+            <p>Well this is a story all about how, my life got twist turned upside down..</p>
+            <img src="{{ url_for('static', filename='img/moi.jpg') }}"alt="Headshot of myself">
         </section>
-        <section id="skill">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                <i class="fas fa-music"></i>These are a few of my favorite things:
+                <br>
+                Pastry wafer chocolate cake caramels. 
+                Gummi bears pudding sugar plum macaroon. 
+                Cake tart apple pie soufflé sweet sweet. 
+                Topping bear claw lemon drops gingerbread 
+                biscuit pudding fruitcake icing chocolate bar.
+            </p>
+            <div id="triangle1"></div>
+            <div id="triangle2"></div>
+        </section>
+        <section id="skills">
             <i class="fas fa-laptop-code"></i>
-            <h2>Skill</h2>
+            <h2>Skills</h2>
             <ul>
-                <li>Python <i class="fas fa-dragon"></i></li>
-                <li>Flask <i class="fas fa-glass-martini"></i></li>
-                <li>SQLAlchemy <i class="fas fa-database"></i></li>
-                <li>GitHub <i class="fas fa-link"></i></li>
-                <li>Visual Studio Code <i class="fas fa-code"></i></li>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQLAlchemy</li>
+                <li>GitHub</li>
+                <li>Visual Studio Code</li>
             </ul>
         </section>
         <section id="projects">
@@ -22,112 +36,29 @@
             <i class="fas fa-file-code"></i>
             <h2>Projects</h2>
             <div id="project-list">
-                    {% for project in projects %}
+                {% for project in projects %}
                     <div class="a-project">
-                    <h3>{{ project.title }}</h3>
-                    <a href="{{ project.url }}" alt="{{ project.url_tag }}" class="github-btn" target="_blank">
-                        <i class="fab fa-github"></i>
-                        View on GitHub
-                    </a>
-                    <p>{{ project.description }}</p>
-                    <p>Skill:{{ project.skill }}</p>
+                        <h3>{{ project.title }}</h3>
+                        <a href="{{ project.url }}" class="github-btn" target="blank">
+                            <i class="fab fa-github"></i>
+                            View on GitHub
+                        </a>
+                        <p>{{ project.description }}</p>
+                        <p>Skills: {{ project.skills }}</p>
                     </div>
-                    {% endfor %}
+                {% endfor %}
             </div>
             <div id="triangle4"></div>
         </section>
-        <section id="about">
-            <h2>About Me</h2>
-            <p style="color:aliceblue !important;">
-            </p>
-            <div id="spotify-button">
-                <a href="https://open.spotify.com/album/3bjYClhYKGeeK4y9QIvo7d" class="spotify" target="_blank">
-                    <i class="fab fa-spotify"></i> Listen on Spotify
-                </a><br>
-                <i class="fas fa-music"></i>
-                [Verse 1]<br>
-                Remember when you ran away<br>
-                And I got on my knees<br>
-                And begged you not to leave because I'd go berserk?<br>
-                Well, you left me anyhow<br>
-                And then the days got worse and worse<br>
-                And now, you see, I've gone completely out of my mind<br>
-                <br>
-                <i class="fas fa-music"></i>
-                [Chorus]<br>
-                And they're coming to take me away, ha-ha<br>
-                They're coming to take me away, ho-ho, hee-hee, ha-ha<br>
-                To the funny farm<br>
-                Where life is beautiful all the time<br>
-                And I'll be happy to see those nice young men in their clean white coats<br>
-                And they're coming to take me away, ha-ha<br>
-                <br>
-                <i class="fas fa-music"></i>
-                [Verse 2]<br>
-                You thought it was a joke<br>
-                And so you laughed, you laughed when I had said<br>
-                That losing you would make me flip my lid<br>
-                Right? You know you laughed, I heard you laugh<br>
-                You laughed, you laughed and laughed and then you left<br>
-                But now you know I'm utterly mad<br>
-                <br>
-                <i class="fas fa-music"></i>
-                [Chorus]<br>
-                And they're coming to take me away, ha-ha<br>
-                They're coming to take me away, ho-ho, hee-hee, ha-ha<br>
-                To the happy home<br>
-                With trees and flowers and chirping birds<br>
-                And basket weavers who sit and smile and twiddle their thumbs and toes<br>
-                And they're coming to take me away, ha-ha<br>
-                <br>
-                <i class="fas fa-music"></i>
-                [Verse 3]<br>
-                I cooked your food, I cleaned your house<br>
-                And this is how you pay me back<br>
-                For all my kind unselfish loving deeds?<br>
-                Huh? Well, you just wait, they'll find you yet<br>
-                And when they do, they'll put you in<br>
-                The ASPCA, you mangy mutt<br>
-                <br>
-                <i class="fas fa-music"></i>
-                [Chorus]<br>
-                And they're coming to take me away, ha-ha<br>
-                They're coming to take me away, ho-ho, hee-hee, ha-ha<br>
-                To the funny farm<br>
-                Where life is beautiful all the time<br>
-                And I'll be happy to see those nice young men in their clean white coats<br>
-                And they're coming to take me away, ha-ha<br>
-                To the happy home<br>
-                With trees and flowers and chirping birds<br>
-                And basket weavers who sit and smile and twiddle their thumbs and toes<br>
-                And they're coming to take me away, ha-ha<br>
-                To the funny farm<br>
-                Where life is beautiful all the time<br>
-                And I'll be happy to see those nice young men in their clean white coats<br>
-                <i class="fas fa-music"></i>
-            <div id="triangle1"></div>
-            <div id="triangle2"></div>
-        </section>
-
-
         <section id="contact">
             <i class="fas fa-paper-plane"></i>
             <h2>Contact Me</h2>
             <p>
-                This is only if you really really want to see something constructive
+                I am a grumpy old man, so you better not <i class="fas fa-smile"></i>
             </p>
             <p>
-                <a href="mailto:mennowillemse@gmail.com">
-                    <i class="fas fa-envelope"></i> mennohasanemailaddresbutthisisntit@gmailorhotmail.com
-                </a>
-                
-            </p>
-            <p> If you do not want to say something constructive, please click below</p>
-            <p>
-                <div id="image-container">
-                <p><i class="fa fa-trash"></i><a href="{{ url_for('static', filename='img/trashcan.png') }}" target="_blank">my_email@email.com</p>
-                    </a>
-                </div>
+                <i class="fas fa-envelope"></i>
+                my_email@email.com
             </p>
         </section>
 

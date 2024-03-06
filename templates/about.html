@@ -1,21 +1,22 @@
 {% extends 'layout.html' %}
 
-{% block content %}
-        <section class="header">
-            <h1>Menno Willemse</h1>
-            <p>Fulltime Salary administrator, freetime python program beginner</p>
-            <img src="{{ url_for('static', filename='img/thecatman.jpg') }}" alt="Headshot of my red cat">
-        </section>
-        <section id="about-page">
-            <div id="triangle7"></div>
-            <div id="triangle8"></div>
-            <h2>This is sort of me</h2>
-            <p>
-              When i am not working or programming i am either in the gym preparing for my next 10k run (preparing for more somehow, somewhere), playing videogames or preparing another DND session (yes, also parttime DM )
-            </p>
-            <p>
-
-            </p>
-            <a href="{{ url_for('static', filename='documents/cv english.docx') }}"><i class="far fa-file"></i>Resume</a>
-        </section>
+{% block content %} 
+<section class="header">
+    <h1>Menno</h1>
+    <p>I do not have a goal; I just want to learn and obey the master of the house in the picture below.</p>
+    <img src="{{ url_for('static', filename='img/thecatman.jpg') }}" alt="Headshot of my cat">
+    <p>Bow down to the feline overlord!</p>
+</section>
+<section id="about-page">
+    <div id="triangle7"></div>
+    <div id="triangle8"></div>
+    <h2>A not so long time ago, in a galaxy very, very near</h2>
+    <p>
+        There is not much to tell. Still trying to wrap my head around all this coding, with no general direction whatsoever.
+    </p>
+    <p>
+        So, just typing random sentences now...
+    </p>
+    <a href="{{ url_for('static', filename='documents/cv english.docx') }}"><i class="far fa-file"></i> Resume</a>
+</section>
 {% endblock %}

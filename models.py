@@ -1,6 +1,5 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import datetime
 import os
 
 app = Flask(__name__)
@@ -10,19 +9,18 @@ db = SQLAlchemy(app)
 
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column('Title',db.String())
-    created = db.Column('Created', db.DateTime, default=datetime.datetime.now)
-    description = db.Column('Description',db.Text())
-    skill = db.Column('Skill',db.Text())
-    url = db.Column('URL',db.String())
-    url_tag = db.Column('Alt tag',db.String())
-
+    title = db.Column('Title', db.String())
+    completion_date = db.Column('Completion Date', db.Date)  # Change here
+    description = db.Column('Description', db.Text())
+    skills = db.Column('Skills', db.Text())
+    url = db.Column('URL', db.String())
+    url_tag = db.Column('Alt tag', db.String())
 
     def __repr__(self):
         return f'''<Project (Title: {self.title}
-        Created: {self.created}
+        Completion Date: {self.completion_date}
         Description: {self.description}
-        Skill: {self.skill}
+        Skills: {self.skills}
         URL: {self.url}
         Alt tag: {self.url_tag}
         '''

@@ -1,42 +1,34 @@
 {% extends 'layout.html' %}
 
-{% block content %}
-<style>
-    #skill {
-        text-align: left; /* Left-align the text */
-    }
-</style>
-<section class="header">
-  <h1>{{ project.title }}</h1>
-</section>
-<section id="form">
-    <form action="{{ url_for('delete_project', id=project.id) }}" method="POST" onsubmit="return confirmDelete();">
-    <label for="title">Title</label>
-    <p>{{ project.title }}</p>
+{% block content %} 
+    <section class="header">
+        <h1>{{ project.title }}</h1>
+    </section>
+    <section id="form">
+        <form action="">
+            <label for="title">Project Title</label>
+            <input type="text" name="title" id="title" value="{{ project.title }}" readonly>
+            
+            <label for="date">Completion Date</label>
+            <input type="month" name="date" id="completion_date" value="{{ project.completion_date.strftime('%Y-%m') if project.completion_date else '' }}" readonly>
 
-    <label for="date">Date Created</label>
-    <p>{{ project.created }}</p>
+            <label for="description">Description</label>
+            <textarea name="desc" id="description" cols="30" rows="20" readonly>{{ project.description }}</textarea>
+            
+            <label for="skills-list" id="skills-label">Skills</label>
+            <p>Separate each skill by a comma</p>
+            <textarea name="skills" id="skills-list" cols="30" rows="10" readonly>{{ project.skills }}</textarea>
+            
+            <label for="github">GitHub Link</label>
+            <input type="url" name="github" id="github" value="{{ project.url }}"target="blank" readonly>
 
-    <label for="description">Description</label>
-    <p>{{ project.description }}</p>
-
-    <label for="skill-list" id="skill-label">Skill</label>
-    <p>{{ project.skill }}</p>
-
-    <label for="github">GitHub Link</label>
-    <p>{{ project.url }}</p>
-
-    <div id="form-buttons" class="buttons-container">
-        <section id="edit-delete">
-            <a href="{{ url_for('edit', id=project.id) }}" class="edit-btn">Edit</a>
-            <button type="submit" class="delete-btn">Delete</button>
-        </section>
-    </div>
-  </form>
-</section>
-<script>
-    function confirmDelete() {
-        return confirm("Are you sure you want to delete this project?");
-    }
-</script>
+            <label for="url_tag">Alt tag</label>
+            <input type="text" name="url_tag" id="url_tag" value="{{ project.url_tag }}" readonly>
+            
+            <div>
+                <a href="{{ url_for('edit', id=project.id) }}"><button type="button">Edit</button></a>
+                <a href="{{ url_for('delete_project', id=project.id) }}"><button type="button">Delete</button></a>
+            </div>
+        </form>
+    </section>
 {% endblock %}

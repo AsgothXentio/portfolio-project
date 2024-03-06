@@ -1,46 +1,38 @@
+html
+Copy code
 {% extends 'layout.html' %}
 
-{% block button %} 
-    <a class="back-btn" href="{{ url_for('index') }}">
-        <i class="fas fa-caret-left"></i>
-        Back
-    </a>
-{% endblock %}
-
-{% block content %}
+{% block content %} 
+    <section class="header">
+        <h1>Edit Project</h1>
+    </section>
     <section id="form">
-        <form action="{{ url_for('edit', id=project.id) }}" method="POST">
-            <div class="columns">
-                <div class="col1">
-                    <div class="form-container">
-                        <label for="title">Name</label>
-                        <input id="title" name="title" type="text" placeholder="Project here" value="{{ project.title }}">
-                    </div>
-                    <fieldset id="descr">
-                        <div>
-                            <legend>Description</legend>
-                            <label for="description" style="display: none;">Description</label>
-                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Project description">{{ project.description }}</textarea>
-                        </div>
-                    </fieldset>
-                    <div class="form-container">
-                        <label for="skill-list" id="skill-label">Skill</label>
-                        <input id="skill" name="skill" type="text" placeholder="skill" value="{{ project.skill }}">
-                    </div>
-                    <div class="form-container">
-                        <label for="github">GitHub</label>
-                        <input id="url" name="url" type="text" placeholder="Link to repo" value="{{ project.url }}">
-                    </div>
-                    <div class="form-container">
-                        <label for="alt">Image Alt Text</label>
-                        <input id="alt" name="alt" type="text" placeholder="project name" value="{{ project.url_tag }}">
-                    </div>                    
-                </div>
-            </div>
-            <div id="form-buttons">
-                <a href="{{ url_for('index') }}"><button type="button">Cancel</button></a>
-                <button type="submit">Submit</button>
+        <form action="{{ url_for('edit', id=project.id) }}" method="post">
+            <label for="title">Project Title</label>
+            <input type="text" name="title" id="title" value="{{ project.title }}" required>
+            
+            <label for="date">Completion Date</label>
+            <input type="month" name="date" id="completion_date" value="{{ project.completion_date.strftime('%Y-%m') if project.completion_date else '' }}" required>
+
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="20" required>{{ project.description }}</textarea>
+            
+            <label for="skills-list" id="skills-label">Skills</label>
+            <p>Separate each skill by a comma</p>
+            <textarea name="skills" id="skills-list" cols="30" rows="10" required>{{ project.skills }}</textarea>
+            
+            <label for="github">GitHub Link</label>
+            <input type="url" name="url" id="github" value="{{ project.url }}" required>
+
+            <label for="url_tag">Alt tag</label>
+            <input type="text" name="url_tag" id="url_tag" value="{{ project.url_tag }}" required>
+
+
+            <div>
+                <a href="{{ url_for('project', id=project.id) }}"><button type="button">Cancel</button></a>
+                <button type="submit">Save Changes</button>
             </div>
         </form>
     </section>
 {% endblock %}
+

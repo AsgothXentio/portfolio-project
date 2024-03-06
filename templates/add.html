@@ -1,39 +1,36 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<section id="form">
-    <form action="{{ url_for('add_project') }}" method="POST">
-        {{ form.hidden_tag() }}
-        <div class="columns">
-            <div class="col1">
-                <div class="form-container">    
-                    <p>{{ form.title.label }}</p>
-                    {{ form.title(class="form-control", placeholder="Enter title here") }}
-                </div>
-                <div class="form-container">
-                    <p>{{ form.description.label }}</p>
-                    {{ form.description(class="form-control", placeholder="This project is...") }}
-                </div>
-                <div class="form-container">
-                    <p>{{ form.skill.label }}</p>
-                    {{ form.skill(class="form-control", placeholder="Skill...", style="text-align:left;") }}
-                </div>
+    <section class="header">
+        <h1>Add New Project</h1>
+    </section>
+    <section id="form">
+        <form action="{{ url_for('add_project') }}" method="POST">
+            {{ form.hidden_tag() }}
+            
+            <label for="title">Project Title</label>
+            {{ form.title(class="form-control", placeholder="Enter title here", required=required) }}
+
+            <label for="completion_date">Completion Date</label>
+            {{ form.completion_date(class="form-control", type="month", placeholder="Enter completion date here", required=required) }}
+
+            <label for="description">Description</label>
+            {{ form.description(class="form-control", placeholder="This project is...", required=required) }}
+
+            <label for="skills-list" id="skills-label">Skills</label>
+            <p>Separate each skill by a comma</p>
+            {{ form.skills(class="form-control", placeholder="Skills required are...", required=required) }}
+
+            <label for="url">GitHub Link</label>
+            {{ form.url(class="form-control", placeholder="URL please", required=required) }}
+
+            <label for="url_tag">Alt tag</label>
+            {{ form.url_tag(class="form-control", placeholder="Project name", required=required) }}
+
+            <div id="form-buttons">
+                <a href="{{ url_for('index') }}" onclick="return confirm('Are you sure you want to cancel?');"><button type="button">Cancel</button></a>
+                <button type="submit">Submit</button>
             </div>
-            <div class="col2">
-                <div class="form-container">
-                    <p>{{ form.url.label }}</p>
-                    {{ form.url(class="form-control", placeholder="URL please") }}
-                </div>
-                <div class="form-container">
-                    <p>{{ form.url_tag.label }}</p>
-                    {{ form.url_tag(class="form-control", placeholder="Project name") }}
-                </div>
-            </div>
-        </div>
-        <div id="form-buttons">
-            <a href="{{ url_for('index') }}"><button type="button">Cancel</button></a>
-            <button type="submit">Submit</button>
-        </div>
-    </form>
-</section>
+        </form>
+    </section>
 {% endblock %}
